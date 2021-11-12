@@ -1,0 +1,44 @@
+<p>calculator works!</p>
+<div>
+  <input value="{{result}}">
+  <mat-grid-list cols="4" rowHeight="1:2">
+  <!--<mat-grid-tile>7</mat-grid-tile>
+  <mat-grid-tile>8</mat-grid-tile>
+  <mat-grid-tile>9</mat-grid-tile>
+  <mat-grid-tile>/</mat-grid-tile>
+  <mat-grid-tile>4</mat-grid-tile>
+  <mat-grid-tile>5</mat-grid-tile>
+  <mat-grid-tile>6</mat-grid-tile>
+  <mat-grid-tile>*</mat-grid-tile>
+  <mat-grid-tile>1</mat-grid-tile>
+  <mat-grid-tile>2</mat-grid-tile>
+  <mat-grid-tile>3</mat-grid-tile>
+  <mat-grid-tile>-</mat-grid-tile>
+  <mat-grid-tile>c</mat-grid-tile>
+  <mat-grid-tile>0</mat-grid-tile>
+  <mat-grid-tile>+</mat-grid-tile>
+  <mat-grid-tile>=</mat-grid-tile>-->
+
+  <mat-grid-tile *ngFor="let button of buttons">
+    <button mat-raised-button (click)="addValue(button)">{{button}}</button>
+  </mat-grid-tile>
+</mat-grid-list>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
