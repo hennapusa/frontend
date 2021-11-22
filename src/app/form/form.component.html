@@ -1,0 +1,65 @@
+<p>form works!</p>
+
+<form action="/action_page.php">
+  <div class="form-group">
+    <label for="firstName">firstName:</label>
+    <input type="name" class="form-control" id="firstName"
+           [(ngModel)]="person.firstName" name="firstName" #firstname='ngModel' required minlength="2">
+    <div *ngIf="firstname.invalid && (firstname.dirty || firstname.touched)" class="alert alert-danger">
+    <p *ngIf="firstname.hasError('required')">"Enter your first name"</p>
+    <p *ngIf="firstname.hasError('minlength')">"Minimum 2 characters required"</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="lastName">lastName:</label>
+    <input type="lastName" class="form-control" id="lastName"
+           [(ngModel)]="person.lastName"name="lastname" #lastname='ngModel' required minlength="2">
+    <div *ngIf="lastname.invalid && (lastname.dirty || lastname.touched)" class="alert alert-danger">
+      <p *ngIf="lastname.hasError('required')">"Enter your lastname name"</p>
+      <p *ngIf="lastname.hasError('minlength')">"Minimum 2 characters required"</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="email">Email Address:</label>
+    <input type="email" class="form-control" id="email"
+    [(ngModel)]="person.email"name="email" #email='ngModel' required minlength="2">
+    <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+      <p *ngIf="email.hasError('required')">"Enter your email address"</p>
+      <p *ngIf="email.hasError('minlength')">"Minimum 2 characters required"</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="userName">userName:</label>
+    <input type="name" class="form-control" id="userName"
+           [(ngModel)]="person.userName" name="userName" #username='ngModel' required minlength="6">
+    <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert alert-danger">
+      <p *ngIf="username.hasError('required')">"Enter your user name"</p>
+      <p *ngIf="username.hasError('minlength')">"Minimum 6 characters required"</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="pwd1">Password:</label>
+    <input type="password" class="form-control" id="pwd1"
+           [(ngModel)]="person.password" name="password1" #password='ngModel' required minlength="10">
+    <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+      <p *ngIf="password.hasError('required')">"Enter your password"</p>
+      <p *ngIf="password.hasError('minlength')">"Minimum 10 characters required"</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="pwd2">Password:</label>
+    <input type="password" class="form-control" id="pwd2"
+           [(ngModel)]="person.password" name="password2" #password='ngModel' required minlength="10">
+    <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+      <p *ngIf="password.hasError('required')">"Enter your password"</p>
+      <p *ngIf="password.hasError('minlength')">"Minimum 10 characters required"</p>
+    </div>
+  </div>
+  <div class="checkbox">
+    <label><input type="checkbox"> Remember me</label>
+  </div>
+  <div>
+  <button type="submit" class="btn btn-default">Submit</button>
+    </div>
+</form>
+
