@@ -1,0 +1,19 @@
+
+<mat-toolbar>
+  <button mat-icon-button class="example-icon" [matMenuTriggerFor]="menu">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>My App</span>
+  <span class="example-spacer"></span>
+
+</mat-toolbar>
+
+<mat-menu #menu="matMenu">
+  <a routerLink="/calculator" routerLinkActive="active">Calculator</a>
+  <br>
+  <a routerLink="/feedback" routerLinkActive="active">Feedback</a>
+  <br>
+  <a routerLink="/form" routerLinkActive="active">Form</a>
+</mat-menu>
+
+
