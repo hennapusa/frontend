@@ -1,0 +1,71 @@
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+  <p>reactive-form works!</p>
+
+  <mat-form-field class="field-full-width">
+    <input matInput placeholder="first name" formControlName="firstName">
+    <mat-error *ngIf="firstName.hasError('required')">must be avalid name</mat-error>
+    <mat-error *ngIf="firstName.hasError('minlenghth')">the minimum lenght for this field
+      is {{profileForm.get('firstName')}}.errors.minlength.required)
+    </mat-error>
+    <mat-error *ngIf="firstName.hasError('pattern')">must be valid name</mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field class="field-full-width">
+    <input matInput placeholder="last name" formControlName="lastName">
+    <mat-error *ngIf="lastName.hasError('required')">must be avalid name</mat-error>
+    <mat-error *ngIf="lastName.hasError('minlenghth')">the minimum lenght for this field
+      is {{profileForm.get('lastName')}}.errors.minlength.required)
+    </mat-error>
+    <mat-error *ngIf="lastName.hasError('pattern')">must be valid name</mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field class="field-full-width">
+    <input matInput placeholder="person Id" formControlName="personId">
+    <mat-error *ngIf="personId.hasError('required')">your id</mat-error>
+    <mat-error *ngIf="personId.hasError('minlenghth')">the minimum lenght for this field
+      is {{profileForm.get('personId')}}.errors.minlength.required)
+    </mat-error>
+    <mat-error *ngIf="personId.hasError('pattern')">must be valid id</mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field class="field-full-width">
+    <input matInput placeholder="email" formControlName="email">
+    <mat-error *ngIf="email.hasError('required')">must be avalid email</mat-error>
+    <mat-error *ngIf="email.hasError('minlenghth')">the minimum lenght for this field
+      is {{profileForm.get('email')}}.errors.minlength.required)
+    </mat-error>
+    <mat-error *ngIf="email.hasError('pattern')">must be valid email</mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field class="field-full-width">
+    <input matInput placeholder="user name" formControlName="username">
+    <mat-error *ngIf="username.hasError('required')">must be avalid user name</mat-error>
+    <mat-error *ngIf="username.hasError('minlenghth')">the minimum lenght for this field
+      is {{profileForm.get('userName')}}.errors.minlength.required)
+    </mat-error>
+    <mat-error *ngIf="username.hasError('pattern')">must be valid user name</mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field class="field-full-width">
+    <input matInput placeholder="password" formControlName="password">
+    <mat-error *ngIf="password.hasError('required')">must be avalid your password</mat-error>
+    <mat-error *ngIf="password.hasError('minlenghth')">the minimum lenght for this field
+      is {{profileForm.get('password')}}.errors.minlength.required)
+    </mat-error>
+    <mat-error *ngIf="password.hasError('pattern')">must be valid your password</mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field class="field-full-width">
+    <input matInput placeholder="confirm password" formControlName="passwordConfirm">
+    <mat-error *ngIf="passwordConfirm.hasError('required')">must be confirm your password</mat-error>
+    <mat-error *ngIf="passwordConfirm.hasError('minlenghth')">the minimum lenght for this field
+      is {{profileForm.get('passwordConfirm')}}.errors.minlength.required)
+    </mat-error>
+    <mat-error *ngIf="passwordConfirm.hasError('pattern')">must be confirm your password</mat-error>
+  </mat-form-field>
+  <br>
+  <mat-checkbox class="example-margin">Terms and conditions</mat-checkbox>
+  <br>
+  <button type="submit" class="btn btn-default">Submit</button>
+  <br>
+</form>
