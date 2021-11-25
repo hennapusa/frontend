@@ -1,11 +1,12 @@
 export class Person {
 
-  firstName: any;
-  lastName: any;
-email: any;
-password: any;
-id: any;
-userName: any;
+  firstName: string;
+  lastName: string;
+  email: any;
+  password: any;
+  id: any;
+  userName: any;
+  password2: any;
 
 
   constructor() {
@@ -15,6 +16,7 @@ userName: any;
     this.password='';
     this.id='';
     this.userName='';
+    this.password2='';
 
   }
 }

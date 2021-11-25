@@ -1,65 +1,94 @@
-<p>form works!</p>
+<form (ngSubmit)="submit(form1)" name="form1" #form1="ngForm">
 
-<form action="/action_page.php">
+
+  <h1>Registration Form!</h1>
   <div class="form-group">
-    <label for="firstName">firstName:</label>
-    <input type="name" class="form-control" id="firstName"
-           [(ngModel)]="person.firstName" name="firstName" #firstname='ngModel' required minlength="2">
-    <div *ngIf="firstname.invalid && (firstname.dirty || firstname.touched)" class="alert alert-danger">
-    <p *ngIf="firstname.hasError('required')">"Enter your first name"</p>
-    <p *ngIf="firstname.hasError('minlength')">"Minimum 2 characters required"</p>
-    </div>
+    <label for="firstName">First name:</label>
+    <input type="firstName" class="form-control" id="firstName" [(ngModel)]="person.firstName" name="firstName"
+           required #name='ngModel' minlength="2" ngModel pattern="[a-zA-Z- ]*">
   </div>
+  <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+    <p *ngIf="name.hasError('required')">Give your first name!</p>
+    <p *ngIf="name.hasError('minlength')">Minimum 2 character required!</p>
+    <p *ngIf="name.hasError('pattern')">Name can contain only letters</p>
+  </div>
+
+
   <div class="form-group">
-    <label for="lastName">lastName:</label>
-    <input type="lastName" class="form-control" id="lastName"
-           [(ngModel)]="person.lastName"name="lastname" #lastname='ngModel' required minlength="2">
-    <div *ngIf="lastname.invalid && (lastname.dirty || lastname.touched)" class="alert alert-danger">
-      <p *ngIf="lastname.hasError('required')">"Enter your lastname name"</p>
-      <p *ngIf="lastname.hasError('minlength')">"Minimum 2 characters required"</p>
-    </div>
+    <label for="lastName">Last name:</label>
+    <input type="lastName" class="form-control" id="lastName" [(ngModel)]="person.lastName" name="lastName"
+           #lastname='ngModel' required minlength="2" ngModel pattern="[a-zA-Z- ]*">
   </div>
+  <div *ngIf="lastname.invalid && (lastname.dirty || lastname.touched)" class="alert alert-danger">
+    <p class="alert alert-danger" *ngIf="lastname.hasError('required')">Give your last name!</p>
+    <p class="alert alert-danger" *ngIf="lastname.hasError('minlength')">Minimum 2 character required!</p>
+    <p *ngIf="name.hasError('pattern')">Name can contain only letters</p>
+  </div>
+
+
   <div class="form-group">
-    <label for="email">Email Address:</label>
-    <input type="email" class="form-control" id="email"
-    [(ngModel)]="person.email"name="email" #email='ngModel' required minlength="2">
-    <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
-      <p *ngIf="email.hasError('required')">"Enter your email address"</p>
-      <p *ngIf="email.hasError('minlength')">"Minimum 2 characters required"</p>
-    </div>
+    <label for="p-id">Person ID:</label>
+    <input type="p-id" class="form-control" id="p-id" [(ngModel)]="person.id" name="id" #id='ngModel' required
+           minlength="11" ngModel
+           pattern="^(0[1-9]|[12]\d|3[01])(0[1-9]|1[0-2])([5-9]\d\+|\d\d-|[01]\dA)\d{3}[\dA-Z]$">
   </div>
+  <div *ngIf="id.invalid && (id.dirty || id.touched)" class="alert alert-danger">
+    <p class="alert alert-danger" *ngIf="id.hasError('required')">Give your personal identification number!</p>
+    <p class="alert alert-danger" *ngIf="id.hasError('minlength')">personal identification number contains 11
+      characters!</p>
+  </div>
+
+
   <div class="form-group">
-    <label for="userName">userName:</label>
-    <input type="name" class="form-control" id="userName"
-           [(ngModel)]="person.userName" name="userName" #username='ngModel' required minlength="6">
-    <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert alert-danger">
-      <p *ngIf="username.hasError('required')">"Enter your user name"</p>
-      <p *ngIf="username.hasError('minlength')">"Minimum 6 characters required"</p>
-    </div>
+    <label for="email">Email address:</label>
+    <input type="email" class="form-control" id="email" [(ngModel)]="person.email" name="email" #email='ngModel'
+           required minlength="5" ngModel pattern="^\S+@\S+$">
   </div>
+  <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+    <p class="alert alert-danger" *ngIf="email.hasError('required')">Give your email address!</p>
+    <p class="alert alert-danger" *ngIf="email.hasError('minlength')">Give valid email!</p>
+    <p class="alert alert-danger" *ngIf="email.hasError('pattern')">invalid email address</p>
+  </div>
+
+
   <div class="form-group">
-    <label for="pwd1">Password:</label>
-    <input type="password" class="form-control" id="pwd1"
-           [(ngModel)]="person.password" name="password1" #password='ngModel' required minlength="10">
-    <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
-      <p *ngIf="password.hasError('required')">"Enter your password"</p>
-      <p *ngIf="password.hasError('minlength')">"Minimum 10 characters required"</p>
-    </div>
+    <label for="user">User name:</label>
+    <input type="user" class="form-control" id="user" [(ngModel)]="person.userName" name="user" #user='ngModel'
+           required minlength="6">
   </div>
+  <div *ngIf="user.invalid && (user.dirty || user.touched)" class="alert alert-danger">
+    <p class="alert alert-danger" *ngIf="user.hasError('required')">Give your user name!</p>
+    <p class="alert alert-danger" *ngIf="user.hasError('minlength')">User name must contain atleast 6
+      characters!
+    </p>
+  </div>
+
+
   <div class="form-group">
-    <label for="pwd2">Password:</label>
-    <input type="password" class="form-control" id="pwd2"
-           [(ngModel)]="person.password" name="password2" #password='ngModel' required minlength="10">
-    <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
-      <p *ngIf="password.hasError('required')">"Enter your password"</p>
-      <p *ngIf="password.hasError('minlength')">"Minimum 10 characters required"</p>
-    </div>
+    <label for="pwd">Password:</label>
+    <input type="password" class="form-control" id="pwd" [(ngModel)]="person.password" name="password"
+           #password='ngModel' required minlength="10" ngModel pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).*$">
   </div>
+  <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+    <p class="alert alert-danger" *ngIf="password.hasError('required')">Type your password here!</p>
+    <p class="alert alert-danger" *ngIf="password.hasError('minlength')">required minimum length 10 characters!
+    </p>
+    <p *ngIf="password.hasError('pattern')">Password must contain numbers and capital letters!</p>
+  </div>
+
+  <div class="form-group">
+    <label for="pwd2">Confirm password:</label>
+    <input type="password" class="form-control" id="pwd2" [(ngModel)]="person.password2" name="password2"
+           #password2='ngModel' required ngModel pattern="{{password.value}}">
+  </div>
+  <div *ngIf="password2.invalid && (password2.dirty || password2.touched)" class="alert alert-danger">
+    <p class="alert alert-danger" *ngIf="password2.hasError('required')">Passwords don't match</p>
+    <p class="alert alert-danger" *ngIf="password2.hasError('pattern')">Password must match!</p>
+  </div>
+
   <div class="checkbox">
-    <label><input type="checkbox"> Remember me</label>
+    <label><input type="checkbox" required ngModel name=checkbox> I've read and understood the conditions</label>
   </div>
-  <div>
-  <button type="submit" class="btn btn-default">Submit</button>
-    </div>
+  <button type="submit" [disabled]="form1.invalid" class="btn btn-default">Submit</button>
 </form>
 

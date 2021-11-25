@@ -1,1 +1,7 @@
-
+input {
+  width: 110%;
+  padding: 8px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  background-color: lightblue;
+}

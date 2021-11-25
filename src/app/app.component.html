@@ -6,16 +6,21 @@
 <!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
 <!-- * * * * * * * to get started with your project! * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
+<app-toolbar></app-toolbar>
 <div class="content" role="main">
 <!--Higlight Card-->
   <div class="card highlight-card card-small">
     <span>{{ title }} app is running!</span>
   </div>
 
-  <!--<app-testi></app-testi>-->
-  <!--<app-calculator></app-calculator>-->
+  <!--<app-testi></app-testi>
+  <app-calculator></app-calculator>
   <app-feedback></app-feedback>
+  <app-form></app-form>
+  <app-reactive-form></app-reactive-form>-->
+
+
+  <router-outlet></router-outlet>
 
 
 </div>
@@ -28,4 +33,4 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<router-outlet></router-outlet>
+
