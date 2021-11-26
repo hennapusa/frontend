@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Question} from "../question";
+import {QuestionsService} from "../services/questions.service";
 
 @Component({
   selector: 'app-feedback',
@@ -7,27 +8,27 @@ import {Question} from "../question";
   styleUrls: ['./feedback.component.css']
 })
 export class FeedbackComponent implements OnInit {
-  questions:Array<Question>=
+  questions: Array<Question>; /* =
     [
       new Question("Kysymys 1"),
       new Question("Kysymys 2"),
       new Question("Kysymys 3"),
-];
+    ];*/
 
 
-  constructor() {
-
+  constructor(private qData: QuestionsService) {
+    this.questions = this.qData.getQuestions();
   }
 
   ngOnInit(): void {
   }
-  onInputChange(event: any, q:Question){
-console.log(event.value);
+
+  onInputChange(event: any, q: Question) {
+    console.log(event.value);
     console.log(q.question);
     q.setAnswer(event.value);
 
   }
-
 
 
 }

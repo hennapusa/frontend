@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, FormBuilder, Validators} from "@angular/forms";
 import {F} from "@angular/cdk/keycodes";
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -9,15 +10,17 @@ import {F} from "@angular/cdk/keycodes";
   styleUrls: ['./reactive-form.component.css']
 })
 export class ReactiveFormComponent implements OnInit {
-  profileForm: FormGroup;
+  profileForm!: FormGroup;
 
 
-  constructor() {
+  constructor(private router: Router) {
 
 
   }
 
-  ngOnInit(): void {
+  ngOnInit()
+    :
+    void {
     this.profileForm = new FormGroup(
       {
         firstName: new FormControl('Anna', [Validators.required, Validators.minLength(2), Validators.pattern('^[a-zA-Z ]*$')]),
@@ -29,20 +32,31 @@ export class ReactiveFormComponent implements OnInit {
         passwordConfirm: new FormControl('', [Validators.required, Validators.minLength(10), Validators.pattern('^[a-zA-Z ]*$')]),
         termAndConditions: new FormControl('', [Validators.requiredTrue]),
       })
+
   };
 
 
   onSubmit() {
 
-
     console.log('profileForm.value: ' + this.profileForm.value);
     console.log('profileForm.value: ' + this.profileForm.value.firstName);
+    console.log('profileForm.value: ' + this.profileForm.value.lastName);
+    console.log('profileForm.value: ' + this.profileForm.value.personId);
+    console.log('profileForm.value: ' + this.profileForm.value.email);
+    console.log('profileForm.value: ' + this.profileForm.value.userName);
+    console.log('profileForm.value: ' + this.profileForm.value.password);
+    console.log('profileForm.value: ' + this.profileForm.value.passwordConfirm);
+    console.log('profileForm.value: ' + this.profileForm.value.termAndConditions);
     console.log('profileForm.value: ' + this.profileForm.valid);
     this.profileForm.reset();
 
-    console.warn('profileForm.value: ' + this.profileForm.value.firstName);
+    /*this.profileForm.markAsPristine();
+    this.profileForm.markAsUntouched();*/
+    this.router.navigate(['calculator']);
+
+    /*console.warn('profileForm.value: ' + this.profileForm.value.firstName);
     console.warn('profileForm.valid: ' + this.profileForm.valid);
-    this.profileForm.reset();
+    this.profileForm.reset();*/
   }
 
   get firstName() {
