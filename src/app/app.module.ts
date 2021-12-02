@@ -21,6 +21,10 @@ import {MatInputModule} from "@angular/material/input";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {ReactiveFormComponent} from './reactive-form/reactive-form.component';
 import {MatCheckboxModule} from "@angular/material/checkbox";
+import {CinemaComponent} from './cinema/cinema.component';
+import {MatExpansionModule} from "@angular/material/expansion";
+import {HttpClientModule} from "@angular/common/http";
+import { NewsFilterPipe } from './Pipes/news-filter.pipe';
 
 
 @NgModule({
@@ -31,7 +35,9 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
     FeedbackComponent,
     ToolbarComponent,
     FormComponent,
-    ReactiveFormComponent
+    ReactiveFormComponent,
+    CinemaComponent,
+    NewsFilterPipe
   ],
   imports: [
     BrowserModule,
@@ -48,7 +54,9 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatExpansionModule,
+    HttpClientModule,
 
   ],
   providers: [],

@@ -1,0 +1,17 @@
+<p>cinema works!</p>
+
+<h1>Finnkino uutisia</h1>
+
+<mat-accordion>
+  <mat-expansion-panel *ngFor='let item of cinemaData$ | async'>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{item.Title}}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    {{item.HTMLLead}}
+    <img src={{item.ImageURL}} width="150px" height="150px">
+
+  </mat-expansion-panel>
+</mat-accordion>
+
