@@ -4,7 +4,12 @@
   </button>
   <span>My App</span>
   <span class="example-spacer"></span>
-
+  <div *ngIf="userEmail$ | async">{{userEmail$ | async}}
+    <button class="mat-stroked-button" (click)='logOut()'>{{logOutText}}</button>
+  </div>
+  <div *ngIf="!(userEmail$ | async)">
+    <button class="mat-stroked-button" (click)='login()'>{{loginText}}</button>
+  </div>
 </mat-toolbar>
 
 <mat-menu #menu="matMenu">
@@ -17,6 +22,9 @@
   <a routerLink="/reactive-form" routerLinkActive="active">ReactiveForm</a>
   <br>
   <a routerLink="/cinema" routerLinkActive="active">Cinema</a>
+  <br>
+  <a routerLink="/login" routerLinkActive="active">Login</a>
+
 </mat-menu>
 
 

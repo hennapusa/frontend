@@ -1,9 +1,12 @@
 <p>cinema works!</p>
 
 <h1>Finnkino uutisia</h1>
-
+<input matInput placeholder="Kirjoita hakusana" [(ngModel)]="searchTerm">
+<!--<input matInput placeholder="Kirjoita hakusana" [(ngModel)]="searchTerm">
+<mat-icon matSuffix>find_in_page</mat-icon>-->
 <mat-accordion>
-  <mat-expansion-panel *ngFor='let item of cinemaData$ | async'>
+  <!--| newsFilter: searchTerm-->
+  <mat-expansion-panel *ngFor="let item of cinemaData$ | async | NewsFilter: searchTerm">">
     <mat-expansion-panel-header>
       <mat-panel-title>
         {{item.Title}}

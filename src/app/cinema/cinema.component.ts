@@ -9,11 +9,12 @@ import {Observable} from "rxjs";
   styleUrls: ['./cinema.component.css']
 })
 export class CinemaComponent implements OnInit {
-  //tämä on pelkkä testi taulukko:
+  //testi taulukko:
   news: string[] =
     ['1', '2', '3', '4']
 
   cinemaData$: Observable<any>;
+  searchTerm: any;
 
   constructor(private cinemaService: CinemaService) {
 

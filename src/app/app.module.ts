@@ -24,7 +24,15 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
 import {CinemaComponent} from './cinema/cinema.component';
 import {MatExpansionModule} from "@angular/material/expansion";
 import {HttpClientModule} from "@angular/common/http";
-import { NewsFilterPipe } from './Pipes/news-filter.pipe';
+import {NewsFilterPipe} from './Pipes/news-filter.pipe';
+import {LoginComponent} from './login/login.component';
+import {MaintenanceComponent} from './maintenance/maintenance.component';
+import {AngularFireAuthModule} from "@angular/fire/compat/auth";
+import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
+import {AngularFireModule} from "@angular/fire/compat";
+import {environment} from "../environments/environment";
+import {DialogComponent} from './dialog/dialog.component';
+import {MatDialog, MatDialogConfig, MatDialogModule} from "@angular/material/dialog";
 
 
 @NgModule({
@@ -37,7 +45,11 @@ import { NewsFilterPipe } from './Pipes/news-filter.pipe';
     FormComponent,
     ReactiveFormComponent,
     CinemaComponent,
-    NewsFilterPipe
+    NewsFilterPipe,
+    LoginComponent,
+    MaintenanceComponent,
+    NewsFilterPipe,
+    DialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,6 +69,10 @@ import { NewsFilterPipe } from './Pipes/news-filter.pipe';
     MatCheckboxModule,
     MatExpansionModule,
     HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    MatDialogModule,
 
   ],
   providers: [],
